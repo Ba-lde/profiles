@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notre Équipe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+
+  /* ── RESET ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: #0a0a12;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── CANVAS PARTICULES ── */
+  canvas#particles {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ── ORB GLOW ── */
+  .orb {
+    position: fixed;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(100,80,200,0.10) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    pointer-events: none;
+    animation: orbFloat 8s ease-in-out infinite;
+  }
+  @keyframes orbFloat {
+    0%,100% { transform: translate(-50%,-50%); }
+    33%      { transform: translate(-48%,-52%); }
+    66%      { transform: translate(-52%,-48%); }
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 48px;
+    background: linear-gradient(to bottom, rgba(10,10,18,0.92) 0%, transparent 100%);
+  }
+
+  nav { display: flex; gap: 52px; }
+
+  nav a {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; left: 50%; right: 50%;
+    height: 1px;
+    background: #c8a96e;
+    transition: left 0.3s, right 0.3s;
+  }
+  nav a:hover        { color: #fff; }
+  nav a:hover::after { left: 0; right: 0; }
+
+  /* ── SECTIONS ── */
+  .section {
+    display: none;
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+  }
+  .section.active { display: flex; }
+
+  /* ══════════════════════════════════════
+     SECTION : ACCUEIL
+  ══════════════════════════════════════ */
+  #home {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .hero-label {
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 9vw, 108px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: #fff;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .hero-sub {
+    font-weight: 300;
+    font-size: clamp(13px, 1.8vw, 17px);
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.38);
+    text-transform: uppercase;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.72s forwards;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c8a96e;
+    border: 1px solid rgba(200,169,110,0.4);
+    padding: 14px 38px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.95s forwards;
+  }
+  .hero-cta:hover {
+    background: #c8a96e;
+    color: #0a0a12;
+    border-color: #c8a96e;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.3s forwards;
+  }
+  .scroll-hint span {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+  .scroll-line {
+    width: 1px; height: 44px;
+    background: linear-gradient(to bottom, rgba(200,169,110,0.8), transparent);
+    animation: pulse 2s 1.5s ease-in-out infinite;
+  }
+
+  /* ══════════════════════════════════════
+     SECTION : MEMBRES
+  ══════════════════════════════════════ */
+  #membres {
+    flex-direction: column;
+    padding: 130px 40px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 68px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.15s forwards;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 60px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .section-sep {
+    width: 44px; height: 1px;
+    background: #c8a96e;
+    margin: 22px auto 0;
+  }
+
+  /* BACK BTN */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    cursor: pointer;
+    margin-bottom: 48px;
+    transition: color 0.3s;
+    background: none;
+    border: none;
+    padding: 0;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+  }
+  .back-btn:hover { color: #c8a96e; }
+
+  /* CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(200,169,110,0.14);
+    border-radius: 18px;
+    padding: 42px 28px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.35s, border-color 0.35s, background 0.35s;
+    opacity: 0;
+    animation: fadeUp 0.7s forwards;
+  }
+  .card:nth-child(1) { animation-delay: 0.3s; }
+  .card:nth-child(2) { animation-delay: 0.45s; }
+  .card:nth-child(3) { animation-delay: 0.6s; }
+  .card:nth-child(4) { animation-delay: 0.75s; }
+
+  .card:hover {
+    transform: translateY(-9px);
+    border-color: rgba(200,169,110,0.48);
+    background: rgba(200,169,110,0.05);
+  }
+
+  /* AVATAR */
+  .avatar {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 26px;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .avatar::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,169,110,0.35);
+  }
+  .avatar::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,169,110,0.12);
+  }
+
+  .av-mariama { background: linear-gradient(135deg,#2a1760,#5933aa); color: #cdb5ff; }
+  .av-daour   { background: linear-gradient(135deg,#0b3828,#167358); color: #7effd6; }
+  .av-anta    { background: linear-gradient(135deg,#6a1428,#b83050); color: #ffb3c0; }
+  .av-fatou   { background: linear-gradient(135deg,#5a3a00,#c8820a); color: #ffe0a0; }
+
+
+  /* CARD TEXT */
+  .card-firstname {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 6px;
+  }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 18px;
+  }
+  .card-divider {
+    width: 30px; height: 1px;
+    background: rgba(200,169,110,0.28);
+    margin: 0 auto 18px;
+  }
+  .card-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.42);
+    margin-bottom: 28px;
+    word-break: break-all;
+    line-height: 1.5;
+  }
+  .card-email svg { flex-shrink: 0; opacity: 0.45; }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c8a96e;
+    text-decoration: none;
+    border: 1px solid rgba(200,169,110,0.32);
+    padding: 11px 24px;
+    border-radius: 32px;
+    transition: all 0.3s;
+    margin-top: auto;
+  }
+  .card-link:hover {
+    background: #c8a96e;
+    color: #0a0a12;
+    border-color: #c8a96e;
+  }
+  .card-link svg { transition: transform 0.3s; }
+  .card-link:hover svg { transform: translateX(4px); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 0.35; }
+    50%      { opacity: 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    nav { gap: 24px; }
+    nav a { font-size: 14px; }
+    #membres { padding: 120px 20px 60px; }
+    .cards-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .card { padding: 28px 16px 24px; }
+    .avatar { width: 72px; height: 72px; font-size: 24px; }
+  }
+  @media (max-width: 400px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+<div class="orb"></div>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <nav>
+    <a onclick="showMembre('mariama')">Mariama</a>
+    <a onclick="showMembre('daour')">Daour</a>
+    <a onclick="showMembre('anta')">Anta</a>
+    <a onclick="showMembre('fatou')">Fatou</a>
+
+  </nav>
+</header>
+
+<!-- ══════════ SECTION : ACCUEIL ══════════ -->
+<section id="home" class="section active">
+  <p class="hero-label">Bienvenue</p>
+  <h1 class="hero-title">Notre Équipe</h1>
+  <p class="hero-sub">Créateurs · Innovateurs · Visionnaires</p>
+  <span class="hero-cta" onclick="showSection('membres')">Découvrir l'équipe</span>
+
+  <div class="scroll-hint">
+    <span>Explorer</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION : MEMBRES ══════════ -->
+<section id="membres" class="section">
+
+  <button class="back-btn" onclick="showSection('home')">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Retour à l'accueil
+  </button>
+
+  <div class="section-header">
+    <p class="section-label">Qui sommes-nous</p>
+    <h2 class="section-title">Notre Équipe</h2>
+    <div class="section-sep"></div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- ── MARIAMA ── -->
+    <div class="card" id="card-mariama">
+      <div class="avatar av-mariama">M</div>
+      <p class="card-firstname">Mariama</p>
+      <h3 class="card-name">Mariama Diallo</h3>
+      <div class="card-divider"></div>
+      <p class="card-email">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M1 4.5l6 3.5 6-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        mariama.diallo@email.com
+      </p>
+      <a href="https://mariama-diallo.com" class="card-link" target="_blank">
+        Voir le site
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- ── DAOUR ── -->
+    <div class="card" id="card-daour">
+      <div class="avatar av-daour">D</div>
+      <p class="card-firstname">Daour</p>
+      <h3 class="card-name">Daour Mbaye</h3>
+      <div class="card-divider"></div>
+      <p class="card-email">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M1 4.5l6 3.5 6-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        daour.mbaye@email.com
+      </p>
+      <a href="https://daour-mbaye.com" class="card-link" target="_blank">
+        Voir le site
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- ── ANTA ── -->
+    <div class="card" id="card-anta">
+      <div class="avatar av-anta">A</div>
+      <p class="card-firstname">Anta</p>
+      <h3 class="card-name">Anta Ndiaye</h3>
+      <div class="card-divider"></div>
+      <p class="card-email">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M1 4.5l6 3.5 6-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        anta.ndiaye@email.com
+      </p>
+      <a href="https://anta-ndiaye.com" class="card-link" target="_blank">
+        Voir le site
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- ── FATOU ── -->
+    <div class="card" id="card-fatou">
+      <div class="avatar av-fatou">F</div>
+      <p class="card-firstname">Fatou</p>
+      <h3 class="card-name">Fatou Sow</h3>
+      <div class="card-divider"></div>
+      <p class="card-email">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M1 4.5l6 3.5 6-3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        fatou.sow@email.com
+      </p>
+      <a href="https://fatou-sow.com" class="card-link" target="_blank">
+        Voir le site
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════ JAVASCRIPT ══════════ -->
+<script>
+
+  /* ── NAVIGATION ── */
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    const target = document.getElementById(id);
+    target.classList.add('active');
+    // relance les animations
+    target.querySelectorAll('[style*="animation"], .card, .section-header, .back-btn, .hero-label, .hero-title, .hero-sub, .hero-cta, .scroll-hint')
+      .forEach(el => {
+        el.style.animation = 'none';
+        el.offsetHeight; // reflow
+        el.style.animation = '';
+      });
+    window.scrollTo(0, 0);
+  }
+
+  function showMembre(name) {
+    showSection('membres');
+    setTimeout(() => {
+      const card = document.getElementById('card-' + name);
+      if (card) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        card.style.borderColor = 'rgba(200,169,110,0.7)';
+        setTimeout(() => { card.style.borderColor = ''; }, 1800);
+      }
+    }, 300);
+  }
+
+  /* ── PARTICULES ── */
+  const canvas = document.getElementById('particles');
+  const ctx    = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', () => { resize(); init(); });
+
+  const COLORS = [
+    'rgba(200,169,110,',
+    'rgba(140,120,220,',
+    'rgba(255,255,255,'
+  ];
+
+  class Particle {
+    constructor() { this.reset(true); }
+    reset(init = false) {
+      this.x       = Math.random() * W;
+      this.y       = init ? Math.random() * H : H + 10;
+      this.r       = Math.random() * 1.8 + 0.3;
+      this.vx      = (Math.random() - 0.5) * 0.35;
+      this.vy      = -(Math.random() * 0.5 + 0.15);
+      this.alpha   = Math.random() * 0.55 + 0.15;
+      this.fade    = Math.random() * 0.004 + 0.001;
+      this.color   = COLORS[Math.floor(Math.random() * COLORS.length)];
+      this.growing = true;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.growing) {
+        this.alpha += this.fade;
+        if (this.alpha >= 0.7) this.growing = false;
+      } else {
+        this.alpha -= this.fade * 0.5;
+      }
+      if (this.alpha <= 0 || this.y < -20) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = this.color + this.alpha + ')';
+      ctx.fill();
+    }
+  }
+
+  function init() {
+    particles = [];
+    const count = Math.floor((W * H) / 9000);
+    for (let i = 0; i < count; i++) particles.push(new Particle());
+  }
+
+  function connectNearby() {
+    const maxDist = 115;
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d  = Math.sqrt(dx * dx + dy * dy);
+        if (d < maxDist) {
+          const op = (1 - d / maxDist) * 0.11;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(200,169,110,${op})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  let mouse = { x: W / 2, y: H / 2 };
+  window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+  function animate() {
+    ctx.clearRect(0, 0, W, H);
+    connectNearby();
+    particles.forEach(p => { p.update(); p.draw(); });
+    const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 200);
+    g.addColorStop(0, 'rgba(200,169,110,0.04)');
+    g.addColorStop(1, 'transparent');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, W, H);
+    requestAnimationFrame(animate);
+  }
+
+  init();
+  animate();
+
+</script>
+</body>
+</html>
