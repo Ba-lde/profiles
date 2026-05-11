@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANIELS - Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="hero">
+        <div id="particles-js"></div>
+        
+        <nav class="navbar">
+            <div class="logo">DANIELS</div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Works</a></li>
+                <li><a href="#">Clients</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <h1>Hello</h1>
+            <h2>I Am <span id="typed-text">Designer</span><span class="cursor"></span></h2>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Particles -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        const words = ["Anta", "Developer", "Intern"];
+        let i = 0, j = 0;
+        let isDeleting = false;
+
+        function type() {
+            let currentWord = words[i];
+
+            if (isDeleting) {
+                document.getElementById("typed-text").textContent =
+                    currentWord.substring(0, j - 1);
+                j--;
+
+                if (j === 0) {
+                    isDeleting = false;
+                    i++;
+                    if (i === words.length) i = 0;
+                }
+            } else {
+                document.getElementById("typed-text").textContent =
+                    currentWord.substring(0, j + 1);
+                j++;
+
+                if (j === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, 2000);
+                    return;
+                }
+            }
+
+            setTimeout(type, isDeleting ? 50 : 150);
+        }
+
+        type();
+
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {"value": 80},
+                "color": {"value": "#ffffff"},
+                "shape": {"type": "circle"},
+                "opacity": {"value": 0.5, "random": true},
+                "size": {"value": 3, "random": true},
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "out_mode": "out"
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": { "enable": true, "mode": "repulse" }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma Page Simple</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="section">
+
+        <!-- IMAGE -->
+        <div class="image">
+            <img src="homme.jpg" alt="image">
+        </div>
+
+        <!-- TEXTE -->
+        <div class="texte">
+            <h2>About Me.</h2>
+            <h3>UI / UX DESIGNER & WEB DEVELOPER</h3>
+
+            <p>
+                I am <b>Jerry Daniels</b>. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever It has survived not only five centuries, but also the leap into electronic but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+                
+            </p>
+
+            <div class="barre">
+                <div class="progres" style="width: 95%;">Web Design 95%</div>
+            </div>
+
+            <div class="barre">
+                <div class="progres" style="width: 80%;">Branding 80%</div>
+            </div>
+
+            <div class="barre">
+                <div class="progres" style="width: 90%;">Development 90%</div>
+            </div>
+
+            <a href="#" class="bouton">Download C.V</a>
+            <a href="#" class="bouton bouton-blanc">Contact Me</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<section class="services">
+  <h2 class="services-title">Services.</h2>
+  
+  <div class="services-grid">
+    <!-- Ligne 1 -->
+    <div class="service-card">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      </div>
+      <h3>Web Design</h3>
+      <p>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text ever</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+      </div>
+      <h3>Branding</h3>
+      <p>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text ever</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon icon-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"></path></svg>
+      </div>
+      <h3>Development</h3>
+      <p>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text ever</p>
+    </div>
+
+    <!-- Ligne 2 : les 3 de ta capture -->
+    <div class="service-card">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9l4-6z"></path><path d="M11 3 8 9l4 13 4-13-3-6"></path><path d="M2 9h20"></path></svg>
+      </div>
+      <h3>Creative Design</h3>
+      <p>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text ever</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+      </div>
+      <h3>Fully Responsive</h3>
+      <p>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text ever</p>
+    </div>
+
+    <div class="service-card">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+      </div>
+      <h3>Retina Ready</h3>
+      <p>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text ever</p>
+    </div>
+  </div>
+</section>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="portfolio.css">
+</head>
+<body>
+
+  <section class="portfolio">
+    <div class="container">
+      
+      <h2 class="section-title">Portfolio.</h2>
+      
+      <ul class="filter-menu">
+        <li class="filter-item active">All</li>
+        <li class="filter-item">Brand</li>
+        <li class="filter-item">Design</li>
+        <li class="filter-item">Graphic</li>
+      </ul>
+
+      <div class="portfolio-grid">
+        
+        <!-- Ligne 1 -->
+        <div class="portfolio-item">
+          <img src="chargeur1.jpg" alt="Chargeur Apple Watch">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h4>WEB DESIGN</h4>
+              <div class="icons">
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07l1.71-1.71"></path></svg>
+                </a>
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <img src="Carnet2.jpg"Carnet">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h4>BRAND</h4>
+              <div class="icons">
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07l1.71-1.71"></path></svg>
+                </a>
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <img src="Point3.jpg" alt="Carte points">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h4>GRAPHIC</h4>
+              <div class="icons">
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </a>
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ligne 2 -->
+        <div class="portfolio-item">
+          <img src="Lampe4.jpg" alt="Bouteille">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h4>DESIGN</h4>
+              <div class="icons">
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </a>
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <img src="regle5.jpg" alt="Crayons">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h4>GRAPHIC</h4>
+              <div class="icons">
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </a>
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <img src="affaire6.jpg" alt="Stylos">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h4>WEB DESIGN</h4>
+              <div class="icons">
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </a>
+                <a href="#" class="icon-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="testimonials.css">
+</head>
+<body>
+
+  <section class="testimonials">
+    <div class="container">
+      
+      <h2 class="section-title">Testimonials.</h2>
+
+      <div class="testimonial-slider">
+        
+        <!-- Slide 1 -->
+        <div class="testimonial-item active">
+          <div class="client-img">
+            <img src="img/client1.jpg" alt="Alex Smith">
+          </div>
+          <p class="client-text">
+            Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </p>
+          <h3 class="client-name">Alex Smith</h3>
+          <span class="client-job">Envato Customer</span>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-item">
+          <div class="client-img">
+            <img src="img/client2.jpg" alt="Jane Doe">
+          </div>
+          <p class="client-text">
+            Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </p>
+          <h3 class="client-name">Jane Doe</h3>
+          <span class="client-job">Themeforest Customer</span>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-item">
+          <div class="client-img">
+            <img src="img/client3.jpg" alt="John Smith">
+          </div>
+          <p class="client-text">
+            Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </p>
+          <h3 class="client-name">John Smith</h3>
+          <span class="client-job">CodeCanyon Customer</span>
+        </div>
+
+      </div>
+
+      <!-- Les 3 points -->
+      <div class="slider-dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+      </div>
+
+    </div>
+  </section>
+
+<script src="testimonials.js"></script>
+</body>
+</html>
