@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>PROJECT VOLKENO</title>
+    <style>
+        @keyframes progress {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: var(--target-width);
+            }
+        }
+
+        .animate-progress {
+            animation: progress 1s ease-out forwards;
+            animation-delay: var(--delay);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins';
+        }
+
+        /* body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(200, 137, 137);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+} */
+        .bg {
+            background-image: url(daoure-images/ChatGPT\ Image\ 29\ avr.\ 2026\,\ 21_22_04.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            width: 300px;
+        }
+
+        .container.txt {
+            position: relative;
+            color: yellow;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .container.txt.t1 {
+            color: aliceblue;
+        }
+
+        .container.txt.t2::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            border-left: 2px solid green;
+            animation: debut 10s steps(20) infinite;
+        }
+
+        .con {
+            width: 75%;
+            /* affiche 3 cartes */
+            overflow: hidden;
+            /* border-radius: 15px; */
+        }
+
+        .slider {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .card {
+            /* min-width: 300px; */
+            /* height: 420px; */
+            /* border-radius: 15px; */
+            color: black;
+            font-size: 10px;
+            font-weight: ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* .card:nth-child(1) {
+    background: #ff7675;
+}
+
+.card:nth-child(2) {
+    background: #74b9ff;
+}
+
+.card:nth-child(3) {
+    background: #55efc4;
+}
+
+.card:nth-child(4) {
+    background: #fdcb6e;
+} */
+
+        @keyframes debut {
+
+            40%,
+            60% {
+                left: calc(100% + 6px);
+            }
+
+            100% {
+                left: calc(0%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- home -->
+    <section id="home" class="h-2/3 bg">
+        <div class="flex justify-between p-10 min-w-screen navbar" id="navbar">
+            <div class="flex pl-10">
+                <h1 class="pr-6 text-white">DANIELS</h1>
+            </div>
+            <div class="flex gap-4 pr-10 text-white">
+                <a href="daoure.html">
+                    <h2>Daoure</h2>
+                </a>
+            </div>
+        </div>
+        <div class="flex flex-col justify-center items-center gap-4 h-[615px] w- text-white">
+            <h1 class="text-5xl">Hello</h1>
+            <div class="flex gap-2 text-5xl">
+                <span class="text t1">Je suis </span>
+                <span class="text t2" id="type"></span>
+            </div>
+            <div class="flex flex-clos gap-4">
+                <div class="flex items-center justify-center h-8 w-8 bg-[#C0C0] rounded-full"><a href=""><i
+                            class="fa-brands fa-facebook"></i></a>
+                </div>
+                <div class="flex items-center justify-center h-8 w-8 rounded-full"><a href=""><i
+                            class="fa-brands fa-twitter"></i></a>
+                </div>
+                <div class="flex items-center justify-center h-8 w-8 rounded-full"><a href=""><i
+                            class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="flex items-center justify-center h-8 w-8 rounded-full"><a href=""><i
+                            class="fa-brands fa-behance"></i></a>
+                </div>
+                <div class="flex items-center justify-center h-8 w-8 rounded-full"><a href=""><i
+                            class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about -->
+    <section id="about" class="grid grid-cols-1 min-h-screen w-full md:grid-cols-1 lg:grid-cols-2">
+        <div class="flex flex-rows grid w-full md:grid-cols-1 lg:grid-cols-2">
+            <div class="flex w-full">
+                <img src="hero.jpg" alt="Photo" class="flex mt-20 h-4/5 w-3/4 h-[100vh] w-[90vh]">
+            </div>
+            <div class="grid h-full md:w-full lg:w-full">
+                <div class="flex flex-col pl-4 w-96 w-1/2 sm:h-1/2 md:w-96 lg:pt-20">
+                    <div class="flex flex-col">
+                        <h1 class="font-black fond-bold lg:text-3xl">About Me.</h1>
+                        <p class="font-mono">UI / UX Designer & Web Developer</p>
+                    </div>
+                    <br>
+                    <p class="h-36 w-[80vh] md:w-[100vh]">I am <span
+                            class="font-sans font-black text-xl lg:text-2xl">Jerry
+                            Daniels</span>
+                        Lorem Ipsum is
+                        simply
+                        dummy
+                        text of
+                        the
+                        printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard dummy text ever It has survived not only
+                        five
+                        centuries, but also the leap into electronic but also the leap into electronic typesetting,
+                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                        sheets
+                        containing</p>
+                </div>
+                <br>
+                <div class="flex flex-col justify-center gap-2 ml-4 lg:items-center">
+                    <div class="w-96 h-8 bg-[#C0C0C0] rounded-full md:w-[560px] lg:w-[600px]">
+                        <div class="p-0.5 h-full w-[95%] text-white font-medium text-xl bg-[#1c1c1c] rounded-lg">
+                            <span class="pl-4 text-left">Web Design</span>
+                            <span class="pl-48 md:pl-80 lg:pl-80">95%</span>
+                        </div>
+                    </div>
+                    <div class="w-96 h-8 bg-[#C0C0C0] rounded-full md:w-[560px] lg:w-[600px]">
+                        <div class="p-0.5 h-full w-[80%] text-white font-medium text-xl bg-[#1c1c1c] rounded-lg">
+                            <span class="pl-4 text-left">Branding</span>
+                            <span class="pl-40 md:pl-72 lg:pl-80">80%</span>
+                        </div>
+                    </div>
+                    <div class="w-96 h-8 bg-[#C0C0C0] rounded-full md:w-[560px] lg:w-[600px]">
+                        <div class="p-0.5 h-full w-[90%] text-white font-medium text-xl bg-[#1c1c1c] rounded-lg">
+                            <span class="pl-4 text-left">Development</span>
+                            <span class="pl-44 md:pl-80 lg:pl-80">90%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-2 pt-10 lg:pt-20">
+                    <button
+                        class="h-10 w-40 text-white bg-[#1c1c1c] rounded-lg hover:bg-[#f7f7f7] hover:text-[#1c1c1c]">Download
+                        C.V</button>
+                    <a href="#contact"><button
+                            class="h-10 w-40 bg-[#f7f7f7] rounded-lg hover:bg-[#1c1c1c] hover:text-[#f7f7f7]">Contacte
+                            Me</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services -->
+    <section id="services" class="min-h-screen bg-[#C0C0C0]">
+        <h1 class="flex items-center justify-center text-center text-5xl font-black lg:h-20">Services</h1>
+        <div class="flex grid grid-cols-1 grid-row-2 gap-2 ml-4 p-10 md:grid-cols-1 lg:grid-cols-3">
+            <div
+                class="flex flex-col grid-cols-1 justify-center items-center h-72 w-96 bg-[#fff] rounded-lg md:w-[100vh] lg:w-72">
+                <div
+                    class="flex justify-center items-center h-20 w-20 bg-[#C0C0C0] rounded-full hover:bg-[#1c1c1c] hover:text-white">
+                    <i class="text-2xl fa fa-laptop" aria-hidden="true"></i>
+                </div>
+                <div class="text-center">
+                    <h2 class="font-bold text-2xl">Web Design</h2>
+                    <h3>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's
+                        standard dummy text
+                        ever</h3>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center h-72 w-96 bg-[#fff] rounded-lg md:w-[100vh] lg:w-72">
+                <div
+                    class="flex justify-center items-center h-20 w-20 bg-[#C0C0C0] rounded-full hover:bg-[#1c1c1c] hover:text-white">
+                    <i class="text-2xl fa fa-bullhorn" aria-hidden="true"></i>
+                </div>
+                <div class="text-center">
+                    <h2 class="font-bold text-2xl">Branding</h2>
+                    <h3>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text
+                        ever</h3>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center h-72 w-96 bg-[#fff] rounded-lg md:w-[100vh] lg:w-72">
+                <div
+                    class="flex justify-center items-center h-20 w-20 bg-[#C0C0C0] rounded-full hover:bg-[#1c1c1c] hover:text-white">
+                    <i class="text-2xl fa fa-umbrella" aria-hidden="true"></i>
+                </div>
+                <div class="text-center">
+                    <h2 class="font-bold text-2xl">Development</h2>
+                    <h3>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text
+                        ever</h3>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center h-72 w-96 bg-[#fff] rounded-lg md:w-[100vh] lg:w-72">
+                <div
+                    class="flex justify-center items-center h-20 w-20 bg-[#C0C0C0] rounded-full hover:bg-[#1c1c1c] hover:text-white">
+                    <i class="text-2xl fa fa-diamond" aria-hidden="true"></i>
+                </div>
+                <div class="text-center">
+                    <h2 class="font-bold text-2xl">Creative Design</h2>
+                    <h3>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text
+                        ever</h3>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center h-72 w-96 bg-[#fff] rounded-lg md:w-[100vh] lg:w-72">
+                <div
+                    class="flex justify-center items-center h-20 w-20 bg-[#C0C0C0] rounded-full hover:bg-[#1c1c1c] hover:text-white">
+                    <i class="text-2xl fa fa-television" aria-hidden="true"></i>
+                </div>
+                <div class="text-center">
+                    <h2 class="font-bold text-2xl">Fully Responsive</h2>
+                    <h3>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text
+                        ever</h3>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center h-72 w-96 bg-[#fff] rounded-lg md:w-[100vh] lg:w-72">
+                <div
+                    class="flex justify-center items-center h-20 w-20 bg-[#C0C0C0] rounded-full hover:bg-[#1c1c1c] hover:text-white">
+                    <i class="text-2xl fa fa-camera" aria-hidden="true"></i>
+                </div>
+                <div class="text-center">
+                    <h2 class="font-bold text-2xl">Retina Ready</h2>
+                    <h3>Lorem Ipsum is simply dummy text of the Lorem Ipsum has been the industry's standard dummy text
+                        ever</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- works -->
+    <section id="works" class="min-h-screen bg-[#C0C0C0]">
+        <h1 class="flex items-center justify-center h-10 text-center text-5xl font-black">Portfolio.</h1>
+        <div>
+            <div class="flex justify-center gap-4 text-2xl font-black">
+                <button onclick="showAll()">
+                    <h2>All</h2>
+                </button>
+                <button onclick="showBrand()">
+                    <h2>Brand</h2>
+                </button>
+                <button onclick="showDesign()">
+                    <h2>Design</h2>
+                </button>
+                <button onclick="showGraphic()">
+                    <h2>Graphic</h2>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 grid-row-2 gap-2 p-10 lg:grid-cols-3" id="all">
+                <div class="h-64 w-84"><img src="daoure-images/1.jpg" alt="photo 1" class="h-full w-full"></div>
+                <div class="h-64 w-84"><img src="daoure-images/2.jpg" alt="photo 2" class="h-full w-full"></div>
+                <div class="h-64 w-84"><img src="daoure-images/3.jpg" alt="photo 3" class="h-full w-full"></div>
+                <div class="h-64 w-84"><img src="daoure-images/4.jpg" alt="photo 4" class="h-full w-full"></div>
+                <div class="h-64 w-84"><img src="daoure-images/5.jpg" alt="photo 5" class="h-full w-full"></div>
+                <div class="h-64 w-84"><img src="daoure-images/6.jpg" alt="photo 6" class="h-full w-full"></div>
+            </div>
+            <div class="grid grid-cols-1 hidden gap-2 p-10 lg:grid-cols-3" id="brand">
+                <div class="h-64 w-84"><img src="daoure-images/4.jpg" alt="photo 4" class="h-full w-full"></div>
+                <div class="h-64 w-84"><img src="daoure-images/6.jpg" alt="photo 6" class="h-full w-full"></div>
+            </div>
+            <div class="grid grid-cols-1 hidden gap-2 p-10 lg:grid-cols-3" id="design">
+                <div class="h-64 w-84"><img src="daoure-images/2.jpg" alt="photo 2" class="h-full w-full"></div>
+                <div class="h-64 w-84"><img src="daoure-images/5.jpg" alt="photo 5" class="h-full w-full"></div>
+            </div>
+            <div class="grid grid-cols-1:grid-cols-3 hidden gap-2 p-10" id="graphic">
+                <div class="h-64 w-84"><img src="daoure-images/1.jpg" alt="photo 1" class="h-full w-full"></div>
+                <div class="h-64 w-84"><img src="daoure-images/3.jpg" alt="photo 3" class="h-full w-full"></div>
+                <div class="h-64 w-84"><img src="daoure-images/5.jpg" alt="photo 5" class="h-full w-full"></div>
+            </div>
+        </div>
+    </section>
+    <!-- clients -->
+    <section id="clients" class="min-h-screen bg-[#C0C0C0] stats">
+        <h1 class="flex items-center justify-center h-20 text-center text-5xl font-black">Testimonials.</h1>
+        <div class="flex flex-col grid grid-cols-1 slider">
+            <div class="flex grid grid-cols-1 gap-4 slider" id="slider">
+                <div class="flex flex-col justify-center items-center bg-[#fff] slide active card">
+                    <img src="daoure-images/1 (1).jpg" alt="Photo" class="h-20 w-20 rounded-full">
+                    <p class="flex items-center">Lorem Ipsum has been the industry's standard dummy text
+                        ever since
+                        the when an unknown printer
+                        took a galley of type and scrambled it to make a type specimen book.</p>
+                    <h2 class="text-2xl font-black">Alex Smith</h2>
+                    <span>Envato Customer</span>
+                </div>
+                <div class="flex flex-col justify-center items-center bg-[#fff] slide card">
+                    <img src="daoure-images/1 (1).jpg" alt="Photo" class="h-20 w-20 rounded-full">
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown
+                        printer
+                        took a galley of type and scrambled it to make a type specimen book.</p>
+                    <h2 class="text-2xl font-black">Alex Smith</h2>
+                    <span>Envato Customer</span>
+                </div>
+                <div class="flex flex-col justify-center items-center bg-[#fff] slide card">
+                    <img src="daoure-images/1 (1).jpg" alt="Photo" class="h-20 w-20 rounded-full">
+                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the when an unknown
+                        printer
+                        took a galley of type and scrambled it to make a type specimen book.</p>
+                    <h2 class="text-2xl font-black">Alex Smith</h2>
+                    <span>Envato Customer</span>
+                </div>
+            </div>
+
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="flex grid grid-cols-1 items-center justify-center ml-20 w-[90%] bg-[#fff] lg:grid-cols-4">
+                <div class="flex flex-col justify-center items-center lg:w-40">
+                    <i class="text-2xl fa fa-users lg:pb-4" aria-hidden="true"></i>
+                    <h2 class="text-3xl font-bold number" data-target="850">0</h2>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="flex flex-col justify-center items-center lg:w-40">
+                    <i class="text-2xl fa fa-thumbs-up lg:pb-4" aria-hidden="true"></i>
+                    <h2 class="text-3xl font-bold number" data-target="230">0</h2>
+                    <p>Complete Projects</p>
+                </div>
+                <div class="flex flex-col justify-center items-center lg:w-40">
+                    <i class="text-2xl fa fa-bullhorn lg:pb-4" aria-hidden="true"></i>
+                    <h2 class="text-3xl font-bold number" data-target="9450">0</h2>
+                    <p>Lines Of Code</p>
+                </div>
+                <div class="flex flex-col justify-center items-center lg:w-40">
+                    <i class="text-2xl fa fa-cloud-download lg:pb-4" aria-hidden="true"></i>
+                    <h2 class="text-3xl font-bold number" data-target="780">0</h2>
+                    <p>Files Downloaded</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- blog -->
+    <section id="blog" class="min-h-screen bg-[#C0C0C0]">
+        <h1 class="flex items-center justify-center h-10 text-center text-5xl font-black">Our Blog.</h1>
+        <div class="grid grid-cols-1 mt-10 w-full con">
+            <div class="grid slider lg:grid-cols-4" id="slider">
+                <div class="flex flex-col grid h-96 bg-[#fff] card lg:w-80">
+                    <img src="daoure-images/1 (2).jpg" alt="photo 1" class="w-">
+                    <div class="p-6 h-64">
+                        <a href="">
+                            <h2>WordPress</h2>
+                        </a>
+                        <p>
+                            <a href="#0" class="font-black text-2xl">Top WordPress Themes and Plugins for Hotels,
+                                Travel, and</a>
+                        </p>
+                        <span class="more underline">
+                            <a href="#0">Read More</a>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="flex flex-col h-96 bg-[#fff] card lg:w-80">
+                    <img src="daoure-images/2 (1).jpg" alt="photo 1" class="w-full">
+                    <div class="p-6 h-64">
+                        <a href="">
+                            <h2>Trends</h2>
+                        </a>
+                        <h4>
+                            <a href="#0">
+                                <p class="font-black text-2xl">Master These Awesome New Skills in March 2018</p>
+                            </a>
+                        </h4>
+                        <span class="more underline">
+                            <a href="#0">Read More</a>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="flex flex-col h-96 bg-[#fff] card lg:w-80">
+                    <img src="daoure-images/3 (1).jpg" alt="photo 1" class="w-full">
+                    <div class="p-6 h-64">
+                        <h6 class="tag">
+                            <a href="#0">Themeforest</a>
+                        </h6>
+                        <h4>
+                            <a href="#0" class="font-black text-2xl">The 20 Best Lightroom Presets You Need to Know
+                                About</a>
+                        </h4>
+                        <span class="more underline">
+                            <a href="#0">Read More</a>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="flex flex-col h-96 bg-[#fff] card lg:w-80">
+                    <img src="daoure-images/4 (1).jpg" alt="photo 1" class="w-full">
+                    <div class="p-6 h-64">
+                        <a href="">
+                            <h6 class="">Trends</h6>
+                        </a>
+                        <h4>
+                            <a href="#0" class="font-black text-2xl">Best Design Items to Appeal to the Millennial
+                                Generation</a>
+                        </h4>
+                        <h6 class="underline more">
+                            <a href="#0">Read More</a>
+                        </h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- contact -->
+    <section id="contact" class="min-h-screen">
+        <h1 class="flex items-center justify-center h-20 text-center text-5xl font-black">Contact Us.</h1>
+        <div class="flex flex-rows grid grid-cols-1 ml-40 w-full bg-[#fff] lg:grid-cols-4">
+            <div class="flex flex-col justify-center items-center h-20 w-full lg:w-full">
+                <div class="flex justify-center items-center w-10 h-10 bg-[#f4f4f4] rounded-full lg:h-10">
+                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                </div>
+                <h6 class="text-2xl fond-bold">Address</h6>
+                <p>6834 Hollywood Blvd - Los Angeles CA</p>
+            </div>
+            <div class="flex flex-col justify-center items-center h-20 lg:w-2/3">
+                <div class="flex justify-center items-center w-10 h-10 bg-[#f4f4f4] rounded-full lg:h-10">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </div>
+                <h6 class="text-2xl fond-bold">Email</h6>
+                <p>Support@website.com</p>
+            </div>
+            <div class="flex flex-col justify-center items-center h-20 lg:w-2/3">
+                <div
+                    class="flex justify-center items-center w-10 h-10 bg-[#f4f4f4] rounded-full hover:bg-[#343434] hover:text-[#fff] lg:h-10">
+                    <i class="fa fa-phone" aria-hidden="true"></i>
+                </div>
+                <h6 class="text-2xl fond-bold">Phone</h6>
+                <p>+20 010 2517 8918</p>
+            </div>
+        </div>
+        <br>
+        <div class="flex gap-4 ml-10 w-3/4 h-10 lg:ml-40">
+            <input type="text" placeholder="Name" required class="w-full bg-[#C0C0C0]">
+            <input type="email" required placeholder="Email" class="w-full bg-[#C0C0C0]">
+        </div>
+        <br>
+        <textarea name="" id="" class="ml-10 w-3/4 h-52 bg-[#C0C0C0] lg:ml-40">Message</textarea>
+        <br>
+        <button class="ml-10 mb-4 w-28 h-10 text-white bg-[#1c1c1c] rounded-lg lg:ml-40">Submit</button>
+    </section>
+    <footer class="flex items-center justify-center h-20 bg-[#1c1c1c]">
+        <p class="flex justify-center items-center text-[#C0C0C0]">Copy Right 2018 © By Daniels All Rights
+            Reserved</p>
+    </footer>
+    <script>
+        function showAll() {
+            document.getElementById("all").classList.remove("hidden");
+            document.getElementById("brand").classList.add("hidden");
+            document.getElementById("design").classList.add("hidden");
+            document.getElementById("graphic").classList.add("hidden");
+        }
+
+        function showBrand() {
+            document.getElementById("all").classList.add("hidden");
+            document.getElementById("brand").classList.remove("hidden");
+            document.getElementById("design").classList.add("hidden");
+            document.getElementById("graphic").classList.add("hidden");
+        }
+
+        function showDesign() {
+            document.getElementById("all").classList.add("hidden");
+            document.getElementById("brand").classList.add("hidden");
+            document.getElementById("design").classList.remove("hidden");
+            document.getElementById("graphic").classList.add("hidden");
+        }
+        function showGraphic() {
+            document.getElementById("all").classList.add("hidden");
+            document.getElementById("brand").classList.add("hidden");
+            document.getElementById("design").classList.add("hidden");
+            document.getElementById("graphic").classList.remove("hidden");
+        }
+    </script>
+    <script>
+        const slides = document.querySelectorAll(".slide");
+        const dots = document.querySelectorAll(".dot");
+
+        let index = 0;
+
+        function showSlide(i) {
+            slides.forEach(slide => slide.classList.remove("active"));
+            dots.forEach(dot => dot.classList.remove("active"));
+
+            slides[i].classList.add("active");
+            dots[i].classList.add("active");
+        }
+
+        function autoSlide() {
+            index++;
+            if (index >= slides.length) {
+                index = 0;
+            }
+            showSlide(index);
+        }
+
+        setInterval(autoSlide, 3000);
+
+        // clic sur les points
+        dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => {
+                index = i;
+                showSlide(index);
+            });
+        });
+    </script>
+    <script>
+        const slider = document.getElementById("slider");
+        const cards = document.querySelectorAll(".card");
+
+        let index = 0;
+        const move = 320; // largeur carte + gap
+
+        function autoSlide() {
+            index++;
+
+            slider.style.transition = "transform 0.5s ease-in-out";
+            slider.style.transform = `translateX(-${index * move}px)`;
+
+            if (index === cards.length - 2) {
+                setTimeout(() => {
+                    slider.appendChild(slider.firstElementChild);
+                    slider.style.transition = "none";
+                    slider.style.transform = "translateX(0)";
+                    index = 0;
+                }, 500);
+            }
+        }
+
+        setInterval(autoSlide, 2000);
+    </script>
+
+    <script>
+        new Typed("#type", {
+            strings: ["Daoure", "Developer", "Stagiaire"],
+            typeSpeed: 40,
+            backSpeed: 60,
+            loop: true
+        });
+    </script>
+    <!-- Témoinages -->
+    <script>
+        const slider = document.getElementById("slider");
+        const cards = Array.from(document.querySelectorAll(".card"));
+
+        /* Dupliquer les cartes pour répétition */
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            slider.appendChild(clone);
+        });
+
+        let index = 0;
+        const cardWidth = 300; // largeur + espace
+
+        function moveSlide() {
+            slider.style.transform = `translateX(-${index * cardWidth}px)`;
+
+            if (index >= cards.length) {
+                setTimeout(() => {
+                    slider.style.transition = "none";
+                    index = 0;
+                    slider.style.transform = `translateX(0px)`;
+                }, 500);
+
+                setTimeout(() => {
+                    slider.style.transition = "transform 0.5s ease-in-out";
+                }, 550);
+            }
+        }
+
+        function nextSlide() {
+            index++;
+            moveSlide();
+        }
+
+        function prevSlide() {
+            if (index <= 0) {
+                index = cards.length;
+            }
+            index--;
+            moveSlide();
+        }
+
+        /* Défilement automatique */
+        setInterval(nextSlide, 2500);
+    </script>
+    <script>
+        const numbers = document.querySelectorAll(".number");
+
+        let started = false;
+
+        window.addEventListener("scroll", () => {
+
+            const section = document.querySelector(".stats");
+            const sectionTop = section.offsetTop;
+
+            if (window.scrollY > sectionTop - 400 && !started) {
+
+                numbers.forEach((num) => {
+
+                    let target = +num.getAttribute("data-target");
+                    let count = 0;
+
+                    let interval = setInterval(() => {
+
+                        count += Math.ceil(target / 100);
+
+                        if (count >= target) {
+                            count = target;
+                            clearInterval(interval);
+                        }
+
+                        num.innerText = count;
+
+                    }, 20);
+
+                });
+
+                started = true;
+            }
+
+        });
+    </script>
+</body>
+
+</html>
