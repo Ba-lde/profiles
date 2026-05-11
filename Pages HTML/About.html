@@ -1,0 +1,157 @@
+<!-- <!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <div class="flex items-center ">
+        image
+        <div>
+        <img src="../images/hero.jpg" alt="">
+        </div>
+        description -->
+        <!-- <div class="flex flex-col items-center justify-center">
+            le titre
+            <div>
+              <h2>About Me.</h2>
+              <span>UI / UX Designer & Web Developer</span>
+            </div>
+            <div class="text-center text-[15px] w-[30rem]">
+                paragraphe
+                <p>I am Jerry Daniels Lorem Ipsum is simply dummy text of the printing and typesetting
+                     industry. Lorem Ipsum has been the industry's standard dummy text ever It has survived not only five centuries, but also the leap into electronic  but also the leap into  electronic typesetting,   remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing</p>
+            </div>
+            SKILLS
+            <div>
+                SKILL 1
+                <div>
+                  <span>Web Design</span>
+                  <span>95%</span> -->
+                <!-- </div>  
+                SKILL 2 
+                <div>
+                    <span>Branding</span>
+                    <span>80%</span>
+                </div>
+                 SKILL 3
+                <div>
+                    <span>Devolopment</span>
+                    <span>90%</span>
+                </div>
+            </div>
+            boutton
+             <div>
+                <button>Download C.V</button>
+                <button>Contact Me</button>
+             </div>
+        </div>
+    </div>
+  </body>
+</html> -->
+
+
+
+
+
+
+
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="bg-gray-100">
+    
+  <div class="flex flex-col md:flex-row items-center min-h-screen px-6 md:px-10 gap-10 relative">
+
+    <!-- IMAGE (fond + overlay effet) -->
+    <div class="w-full md:w-1/2 relative">
+        
+        <img src="../images/hero.jpg"
+             class="w-full h-[300px] md:h-auto object-cover rounded-xl shadow-lg">
+
+        <!-- overlay léger pour effet design -->
+        <div class="absolute inset-0 bg-black/10 rounded-xl"></div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="w-full md:w-1/2 flex flex-col justify-center gap-6 relative">
+
+        <!-- fond décoratif (effet image qui “entre”) -->
+        <div class="absolute -left-10 top-0 w-32 h-full bg-gray-200/50 blur-2xl hidden md:block"></div>
+
+        <!-- contenu -->
+        <div class="relative z-10 flex flex-col gap-6">
+
+            <!-- titre -->
+            <div class="space-y-2">
+                <h2 class="text-3xl font-bold">About Me.</h2>
+                <span class="text-gray-500">UI / UX Designer & Web Developer</span>
+            </div>
+
+            <!-- paragraphe -->
+            <div class="text-gray-600 leading-relaxed">
+                <p>
+                    I am Jerry Daniels Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry. Lorem Ipsum has been the industry's standard dummy text ever It has survived
+                    not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                </p>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="space-y-4">
+
+                <div>
+                    <div class="flex justify-between text-sm font-semibold mb-1">
+                        <span>Web Design</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="w-full bg-gray-300 h-2 rounded">
+                        <div class="bg-black h-2 rounded w-[95%]"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-sm font-semibold mb-1">
+                        <span>Branding</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="w-full bg-gray-300 h-2 rounded">
+                        <div class="bg-black h-2 rounded w-[80%]"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-sm font-semibold mb-1">
+                        <span>Development</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="w-full bg-gray-300 h-2 rounded">
+                        <div class="bg-black h-2 rounded w-[90%]"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- boutons -->
+            <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                <button class="bg-black text-white px-6 py-2 rounded hover:bg-white hover:text-black hover:border transition">
+                    Download C.V
+                </button>
+                <button class="border border-black px-6 py-2 rounded hover:bg-black hover:text-white transition">
+                    Contact Me
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+  </body>
+</html>
