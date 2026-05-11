@@ -46,7 +46,7 @@ header nav a {
 /* HOME */
 .home {
     height: 100vh;
-    background: url('images/bg.jpg') no-repeat center/cover;
+    background: url('images/bgnd.jpg') no-repeat center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -896,4 +896,7 @@ button:hover {
         grid-template-columns: 1fr; /* Une seule colonne : les images s'empilent */
         gap: 15px;
     }
+}
+.counter{
+    
 }

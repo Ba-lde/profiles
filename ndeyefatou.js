@@ -70,3 +70,39 @@ setInterval(() => {
   showSlide(currentSlide);
 }, 3000); // change toutes les 4 secondes
 
+
+const counters = document.querySelectorAll(".counter");
+    let started = false;
+ 
+    function startCounter() {
+      counters.forEach(counter => {
+        const target = +counter.getAttribute("data-target");
+        let count = 0;
+
+        const update = () => {
+          const increment = target / 100;
+
+          count += increment;
+
+          if (count < target) {
+            counter.innerText = Math.floor(count);
+            requestAnimationFrame(update);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        update();
+      });
+    }
+
+    window.addEventListener("scroll", () => {
+      const section = document.getElementById("stats");
+      const sectionTop = section.offsetTop;
+
+      if (window.scrollY > sectionTop - 300 && !started) {
+        startCounter();
+        started = true;
+      }
+    });
+
