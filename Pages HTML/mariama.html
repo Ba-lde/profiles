@@ -21,7 +21,7 @@
   </style>
 
   </head>
-  <body>
+  <body class="pb-24">
 
 <header class="bg-[url('../images/bgimgQ.jpg')] relative h-[100vh] flex flex-col bg-cover bg-center flex items-center justify-center ">
 
@@ -41,22 +41,27 @@
   <div class="absolute inset-0 bg-black/30">
 
     <!-- NAVBAR -->
-    <nav class="flex justify-between items-center text-white py-10 mx-10 md:px-16 ">
+   <nav class="fixed bottom-0 left-0 w-full bg-black/70 backdrop-blur-md border-t border-white/20 py-5 px-8 z-50
+                md:relative md:top-0 md:bottom-auto md:bg-transparent md:backdrop-blur-none md:border-none md:px-16 md:py-10 ">
 
-      <!-- LOGO -->
-      <div class="text-2xl font-bold">Daniels</div>
+  <!-- Boutons -->
+  <div class="flex justify-between items-center w-full">
 
-      <!-- MENU DESKTOP -->
-      <div class="hidden md:flex gap-8">
-        <a href="#" class="text-2xl">Mariama</a>
-      </div>
+    <!-- Daniel -->
+    <button class="px-6 py-3 rounded-full bg-white/10 border border-white/20 text-white font-semibold
+                    hover:bg-white hover:text-black transition duration-300 active:scale-95">
+                Daniel
+    </button>
+    <!-- Mariama -->
+    <button class="px-6 py-3 rounded-full bg-pink-500/20  border border-pink-300/30 text-white font-semibold
+                    hover:bg-pink-500 transition duration-300 active:scale-95">
+        Mariama
+    </button>
 
-      <!-- BOUTON MENU MOBILE -->
-      <button id="menu-btn" class="md:hidden text-2xl">
-        <i class="fa-solid fa-bars"></i>
-      </button>
+  </div>
 
-    </nav>
+</nav>
+    
 
 
 
@@ -72,14 +77,29 @@
        
       </p>
 
-      <!-- ICONES -->
-      <div class="flex gap-4 text-lg md:text-xl p-6">
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fab fa-behance"></i>
-        <i class="fa-brands fa-youtube"></i>
-      </div>
+     <!-- ICONES + BOUTON -->
+<div class="flex items-center gap-8 text-lg md:text-xl p-6">
+
+  <i class="fa-brands fa-facebook"></i>
+
+  <i class="fa-brands fa-twitter"></i>
+
+  <i class="fa-brands fa-linkedin"></i>
+
+  <i class="fab fa-behance"></i>
+
+  <!-- Bouton vidéo -->
+  <button id="openModal"
+    class="px-6 py-3 bg-white/20 backdrop-blur-md text-white
+    rounded-full border border-white/20
+    hover:bg-white hover:text-black
+    transition duration-300">
+
+      ▶ Watch Video
+
+  </button>
+
+</div>
 
     </section>
 
@@ -686,6 +706,40 @@
  </footer>
 
 
+
+
+ 
+
+<!-- MODAL VIDEO -->
+<div id="videoModal"
+class="fixed inset-0 bg-black/80 hidden
+items-center justify-center z-50">
+
+  <!-- CONTENU -->
+  <div class="relative w-[90%] md:w-[800px]">
+
+    <!-- Bouton fermer -->
+    <button id="closeModal"
+    class="absolute -top-12 right-0 text-white text-4xl">
+
+      ✕
+
+    </button>
+
+    <!-- VIDEO YOUTUBE -->
+    <iframe
+      id="youtubeVideo"
+      class="w-full aspect-video rounded-2xl"
+      src=""
+      title="YouTube video player"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+</div>
 
 
 <script src="../dossiers.js/mariama.js"></script>

@@ -200,3 +200,45 @@ blogDots.forEach((dot) => {
     dot.classList.replace('bg-gray-300', 'bg-gray-600');
   });
 });
+
+
+
+
+
+
+
+// modal vidéo
+const openModal = document.getElementById("openModal");
+
+const closeModal = document.getElementById("closeModal");
+
+const videoModal = document.getElementById("videoModal");
+
+const youtubeVideo = document.getElementById("youtubeVideo");
+
+
+// OUVRIR LE MODAL
+openModal.addEventListener("click", () => {
+
+  videoModal.classList.remove("hidden");
+
+  videoModal.classList.add("flex");
+
+  youtubeVideo.src =
+  "https://www.youtube.com/embed/gTHowvrzwlI?autoplay=1";
+
+});
+
+
+// FERMER LE MODAL
+closeModal.addEventListener("click", () => {
+
+  videoModal.classList.remove("flex");
+
+  videoModal.classList.add("hidden");
+
+  youtubeVideo.src = "";
+
+});
+
+
